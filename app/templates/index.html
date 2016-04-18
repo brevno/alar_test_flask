@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="table-wrapper">
+        <table>
+            <tr class="header">
+                <th>Name</th>
+                <th>Is Admin</th>
+            </tr>
+            {% for user in users %}
+                <tr class="data-row">
+                    <td class="user-id" style="display: none">{{ user.id }}</td>
+                    <td class="user-name">{{ user.name }}</td>
+                    <td class="user-is-admin">{{ 'yes' if user.is_admin else 'no' }}</td>
+                    <td class="edit">
+                        <i class="edit fa fa-pencil"></i>
+                        <i class="password fa fa-lock"></i>
+                        <i class="delete fa fa-trash"></i>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input id="btn-new-user" type="button" value="+ Add">
+    </div>
+    <div>Current user: {{ username }}</div>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    {% include 'edit_user.html' %}
+
+    <div class="dialog" id="error-msg" style="display: none">
+        <div class="screen-blocker"></div>
+        <div class="form-wrapper">
+            <form name="error">
+                <h3>Oops</h3>
+                <div class="errors-list"></div>
+                <button type="button">OK</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+

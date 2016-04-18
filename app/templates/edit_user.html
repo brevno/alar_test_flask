@@ -1,0 +1,95 @@
+<div class="dialog" id="edit-user" style="display: none">
+    <div class="screen-blocker"></div>
+    <div class="form-wrapper">
+        <form method="post" name="edit">
+            <h3>Edit user</h3>
+            {{ form_edit.hidden_tag() }}
+
+            <label for="name">Name:</label>
+            {{ form_edit.name }}
+            {% for error in form_edit.name.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            <label for="is_admin">is admin:</label>
+            {{ form_edit.is_admin }}
+            <br>
+            <button class="btn-ok" type="button">OK</button>
+            <button class="btn-cancel" type="button">Cancel</button>
+        </form>
+    </div>
+</div>
+<div class="dialog" id="new-user" style="display: none">
+    <div class="screen-blocker"></div>
+    <div class="form-wrapper">
+        <form method="post" name="edit">
+            <h3>Create new user</h3>
+            {{ form_new_user.hidden_tag() }}
+
+            <label for="name">Name:</label>
+            {{ form_new_user.name }}
+            {% for error in form_new_user.name.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            <label for="is_admin">is admin:</label>
+            {{ form_new_user.is_admin }}
+            <br>
+            <label for="password">Password:</label>
+            {{ form_new_user.password }}
+            {% for error in form_new_user.password.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            <label for="confirm_password">Confirm password:</label>
+            {{ form_new_user.confirm_password }}
+            {% for error in form_new_user.confirm_password.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            <button class="btn-ok" type="button">OK</button>
+            <button class="btn-cancel" type="button">Cancel</button>
+        </form>
+    </div>
+</div>
+<div class="dialog" id="new-password" style="display: none">
+    <div class="screen-blocker"></div>
+    <div class="form-wrapper">
+        <form method="post" name="edit">
+            <h3>Change password</h3>
+            {{ form_password.hidden_tag() }}
+            <input class="user-id" name="user_id" type="hidden" value="">
+
+            <label for="password">Password:</label>
+            {{ form_password.password }}
+            {% for error in form_password.password.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            <label for="confirm_password">Confirm password:</label>
+            {{ form_password.confirm_password }}
+            {% for error in form_password.confirm_password.errors %}
+                {{ error }}
+            {% endfor %}
+            <br>
+            <button class="btn-ok" type="button">OK</button>
+            <button class="btn-cancel" type="button">Cancel</button>
+
+        </form>
+    </div>
+</div>
+<div class="dialog" id="confirm-delete" style="display: none">
+    <div class="screen-blocker"></div>
+    <div class="form-wrapper">
+        <form>
+            <h3>Delete user</h3>
+            <div style="display: none">
+                <input id="user_id" name="user_id" type="hidden">
+            </div>
+
+            <div class="header">Confirm delete user <span></span>?</div>
+            <button class="btn-ok" type="button">OK</button>
+            <button class="btn-cancel" type="button">Cancel</button>
+        </form>
+    </div>
+</div>
